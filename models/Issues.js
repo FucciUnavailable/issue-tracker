@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 const IssueSchema = new mongoose.Schema({
     project: { type: String, required: true }, // Field to identify the project
-    issue_title: String, 
-    issue_text: String,
+    issue_title: {type:String, default: ""},
+    issue_text:  {type:String, default: ""}, 
     created_on: { type: Date, default: Date.now, immutable: true },
     updated_on: { type: Date, default: Date.now },
-    created_by: String,
-    assigned_to: String,
+    created_by:  {type:String, default: ""}, 
+    assigned_to:  {type:String, default: ""}, 
     open: { type: Boolean, default: true },
-    status_text: String
+    status_text:  {type:String, default: ""}, 
 });
 
 // Middleware to automatically update the 'updated_on' field
